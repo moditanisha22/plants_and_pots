@@ -1,0 +1,29 @@
+{% extends "plants_and_pots/base.html" %}
+{% block content %}
+  {%load bootstrap4%}
+  
+  <div class="container register-container">
+          
+          <form class="register" action="" method="post">
+            <h3 class="text-center">Register Here</h3>
+              {% csrf_token %}
+              {%bootstrap_form form%}
+              <input class="btn btn-warning register-btn" type="submit" value="REGISTER">
+
+              <div class="login__divider"></div>
+              <div class="login__loginwith">
+               <a class="loginwith" href="https://www.facebook.com"> Register with Facebook </a>
+                <img class="loginwith-fb" src="https://image.flaticon.com/icons/png/512/145/145802.png" alt="facebook_icon" />
+              </div>
+              <div class="login__loginwith">
+                <a class="loginwith" href="https://www.gmail.com"> Register with Google </a>
+
+                <img class="loginwith-google" src="https://image.flaticon.com/icons/png/512/281/281764.png" alt="google_icon" />
+              </div>
+          </form>
+
+
+          
+      
+  </div>
+{% endblock content %}

@@ -1,0 +1,132 @@
+{% extends 'plants_and_pots/base.html' %}
+
+{% block content %}
+{% load static %}
+
+
+<div class="container banner">
+  
+  <div class="content">
+    <h1>Hello</h1>
+    <div class="buttons">
+      <a href="" class="btn btn-info">More Information</a>
+      <a href="" class="btn btn-danger">More</a>
+    </div>
+  </div>
+</div>
+<div class="container-fluid main-container ">
+  <h1 class="text-center pot-heading">Resin</h1>
+  <div class="pot container">
+    
+    {% if resin  %}
+      {% for pot in resin %}
+        <div data-id={{pot.id}} class="card secondary-card">
+          <div class="image">
+            <a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><img class="pot_image" src="{{pot.pot_image.url}}" alt=""></a>
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <h6><a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}">{{pot.pot_name}}</a></h6>
+              <h6 id="marked_price">Rs. {{pot.marked_price|floatformat:2}}</h6>
+              <h6 style="color:red">Rs. {{pot.selling_price|floatformat:2}}</h6>
+            </div>
+            <div class="card-footerr">
+              <h6><a href="{%url 'pots:addcart' slug=pot.slug %}" class="btn btn-success">Add to Cart</a></h6>
+              <h6><a href="{% url 'pots:quick_shop_checkout' slug=pot.slug %}" class="btn btn-warning">Quick Shop</a></h6>
+            </div>
+          </div>
+         
+        </div>
+        {%endfor%}
+    {% endif %}
+  
+
+  </div>
+  
+  <h1 class="text-center pot-heading">Ceramic</h1>
+<div class="pot container">
+  
+  {% if ceramic %}
+    {% for pot in ceramic %}
+    <div class="card secondary-card">
+      <div class="image">
+        <a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><img class="pot_image" src="{{pot.pot_image.url}}" alt=""></a>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <h6><a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}">{{pot.pot_name}}</a></h6>
+          <h6 id="marked_price">Rs. {{pot.marked_price|floatformat:2}}</h6>
+              <h6 style="color:red">Rs. {{pot.selling_price|floatformat:2}}</h6>
+        </div>
+        <div class="card-footerr">
+          <h6><a href="{%url 'pots:addcart' slug=pot.slug %}"  class="btn btn-success">Add to Cart</a></h6>
+              <h6><a href="{% url 'pots:quick_shop_checkout' slug=pot.slug %}" class="btn btn-warning">Quick Shop</a></h6>
+        </div>
+      </div>
+     
+    </div>
+    {%endfor%}
+  {% endif %}
+    
+  </div>
+
+  
+
+  <h1 class="text-center pot-heading">Metal</h1>
+<div class="pot container">
+  
+  {% if metal %}
+    {% for pot in metal %}
+    <div class="card secondary-card">
+      <div class="image">
+        <a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk %}"><img class="pot_image" src="{{pot.pot_image.url}}" alt=""></a>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <h6><a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}">{{pot.pot_name}}</a></h6>
+          <h6 id="marked_price">Rs. {{pot.marked_price|floatformat:2}}</h6>
+              <h6 style="color:red">Rs. {{pot.selling_price|floatformat:2}}</h6>
+        </div>
+        <div class="card-footerr">
+          <h6><a href="{%url 'pots:addcart' slug=pot.slug %}"  class="btn btn-success">Add to Cart</a></h6>
+              <h6><a href="{% url 'pots:quick_shop_checkout' slug=pot.slug %}" class="btn btn-warning">Quick Shop</a></h6>
+        </div>
+      </div>
+     
+    </div>
+    {%endfor%}
+  {% endif %}
+    
+  </div>
+  <h1 class="text-center pot-heading">Hanging Pots</h1>
+<div class="pot container">
+  
+  {% if hanging %}
+    {% for pot in hanging %}
+    <div class="card secondary-card">
+      <div class="image">
+        <a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk %}"><img class="pot_image" src="{{pot.pot_image.url}}" alt=""></a>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <h6><a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}">{{pot.pot_name}}</a></h6>
+          <h6 id="marked_price">Rs. {{pot.marked_price|floatformat:2}}</h6>
+              <h6 style="color:red">Rs. {{pot.selling_price|floatformat:2}}</h6>
+        </div>
+        <div class="card-footerr">
+          <h6><a href="{%url 'pots:addcart' slug=pot.slug %}"  class="btn btn-success">Add to Cart</a></h6>
+              <h6><a href="{% url 'pots:quick_shop_checkout' slug=pot.slug %}" class="btn btn-warning">Quick Shop</a></h6>
+        </div>
+      </div>
+     
+    </div>
+    {%endfor%}
+  {% endif %}
+</div>
+</div>
+
+<script src="{%static 'pots/pot_list.js'%}"></script>
+
+
+{% endblock content %}
+    

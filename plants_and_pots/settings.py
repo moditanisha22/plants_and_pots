@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'pots',
     'Account',
     'bootstrap4',
+    'dbbackup' ,
+    'crispy_forms',
+    
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,5 +138,6 @@ MEDIA_URL='/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL='/'
-LOGOUT_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL='pots:index'
+LOGOUT_REDIRECT_URL='Account:login'
+CRISPY_TEMPLATE_PACK = 'uni_form'

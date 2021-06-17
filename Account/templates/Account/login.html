@@ -1,0 +1,40 @@
+{% extends "plants_and_pots/base.html" %}
+{% block content %}
+  {%load bootstrap4%}
+  <div class=" login-container ">
+      
+          <form class="login" action="" method="post">
+              {% csrf_token %}
+              
+              {%bootstrap_form form%}
+              <!-- <input class="btn btn-primary login-btn" type="submit" value="Login"> -->
+
+              <div class="login__section">
+                <input type="checkbox" id="login__remember" />
+                <label for="login__remember">Remember me</label>
+                <a href="#" class="login__new-password">Forgot Password?</a>
+              </div>
+
+              <div class="login__section-2">
+                <button class="login__submit login__button" type="submit">Login</button>
+                <a href="{% url 'Account:user_register' %}" class="login__register login__button">Register</a>
+                
+              </div>
+              <div class="login__divider"></div>
+              <div class="login__loginwithh">
+               <a class="loginwithh" href="https://www.facebook.com"> <span id="loginfb-g">Login with Facebook</span>
+                <img class="loginwithh-fb" src="https://image.flaticon.com/icons/png/512/145/145802.png" alt="facebook_icon" /></a>
+              </div>
+              <div class="login__loginwithh">
+                <a class="loginwithh" href="https://www.facebook.com"> <span>Login with Google  </span>
+                <img class="loginwithh-google" src="https://image.flaticon.com/icons/png/512/281/281764.png" alt="google_icon" /></a>
+              </div>
+              <!-- <div class="login__loginwith">
+                <a class="loginwith" href="https://www.facebook.com"><span>Login with Gmail</span>
+                <img class="loginwith-gmail" src="https://www.apkmirror.com/wp-content/uploads/2020/10/Gmail_round-384x384.png" /></a>
+              </div> -->
+          </form>
+      
+  </div>
+ 
+{% endblock content %}

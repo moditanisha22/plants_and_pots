@@ -1,0 +1,68 @@
+{% extends 'plants_and_pots/base.html' %}
+{% block content %}
+  <div class="container cart-container">      
+  <div class="heading">
+   <h2> Quick Shop</h2>
+  
+  </div>
+  <div class="cart-card shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="cart-image">
+          <a class="title" href="{% url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><img src="{{pot.pot_image.url}}" alt=""></a>
+        </div>
+        <div class="cart-content">
+  
+        <a class="title" href="{% url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><h5>{{pot.pot_name}}</h5></a>  
+          <div class="price">
+            <h6>Price</h6>
+            <h6 id="marked_price" >Rs.{{pot.marked_price|floatformat:2}}</h6>
+            <h6><span >Rs.{{pot.selling_price|floatformat:2}}</span></h6>
+          </div>
+        </div>
+        
+        <div class="quantity">
+          <a href="{% url 'pots:quick_decrease' slug=pot.slug pk=q.pk %}"><i class="fa fa-minus"></i></a>
+         
+            
+            {% if q.pot.slug == pot.slug %}
+            <button type="button" class="btn btn-dark">
+               <span class="badge badge-dark">{{q.quantity}}</span>
+            </button>
+            {% endif %}
+              
+          
+         
+          <a href="{% url 'pots:quick_increase' slug=pot.slug pk=q.pk %}"><i class="fa fa-plus"></i></a>
+        </div>
+  
+          <div class="total_price_pot">
+           
+              
+              {% if q.pot.slug == pot.slug %}
+  
+              <h5 style="padding:10px;">Rs.{{q.total_price|floatformat:2}} </h5>
+                
+              {% endif %}
+                
+          
+          </div>
+          <div>
+            <a style="margin: 0 20px;" href="{% url 'pots:delete_cart_pot' slug=pot.slug  %}"><i class="fa fa-times-circle fa-2x"></i></a>
+          </div>
+        
+      </div>
+   
+
+  <div class="subtotal">
+    
+    <h4>Subtotal</h4>
+    <div class="total_item_price">
+      <h3> Rs.{{q.total_price|floatformat:2}}</h3>
+    </div>
+  </div>
+
+  <div class="button">
+      <a href="{% url 'pots:quick_checkout' pk=q.pk %}" class="btn btn-warning">Proceed To Checkout</a>
+  </div>
+
+  </div> 
+{% endblock content %}

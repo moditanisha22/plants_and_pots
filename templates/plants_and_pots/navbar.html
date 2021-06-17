@@ -11,13 +11,38 @@
             <div class="line3"></div>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Solutions</a></li>
-            <li><a href="#">Products</a></li>
+            <li><a href="{%url 'pots:index'%}">Home</a></li>
+            <li><a href="{% url 'pots:cart_list' %}">Cart List</a></li>
+            <li><a href="{% url 'pots:myorder' %}">My Order</a></li>
+            
+            <div class="dropdown">
+                <button class="btn btn-default btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Products
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="{% url 'pots:all_product' %}">All Pots</a>
+                  <a class="dropdown-item" href="{% url 'pots:search_product' category='Resin' %}">Resin</a>
+                  <a class="dropdown-item" href="{% url 'pots:search_product' category='Ceramic' %}">Ceramic</a>
+                  <a class="dropdown-item" href="{% url 'pots:search_product' category='Metal' %}">Metal</a>
+                  <a class="dropdown-item" href="{% url 'pots:search_product' category='hanging' %}">Hanging Pots</a>
+                </div>
+              </div>
+            <!-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Product
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div> -->
+            
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact Us</a></li>
-            <li><button class="login-button" href="#">Login</button></li>
-            <li><button class="join-button" href="#">Join</button></li>
+            <li><a class="login-button" href="{% url 'Account:logout' %}">Logout</a></li>
+            
+            <li><button class="join-button" href="#"><i class="fa fa-user"></i> Profile</button></li>
         </ul>
     </nav>
     
@@ -33,13 +58,18 @@
             <div class="line3"></div>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Solutions</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="{%url 'pots:index'%}">Home</a></li>
+            <li  class="drop-down-a"><a href="#">Products</a></li>
+            <div class="drop-down-div"><ul class="drop-down-ul">
+                <li>Resin</li>
+                <li>Ceramic</li>
+                
+            </ul></div>
+            <li><a href="{% url 'pots:cart_list' %}">Cart List</a></li>
             <li><a href="#">Contact Us</a></li>
-            <li><button class="login-button" href="#">Login</button></li>
-            <li><button class="join-button" href="#">Join</button></li>
+            <li><a class="login-button" href="{% url 'Account:logout' %}">Login</a></li>
+            <li><a class="join-button" href="{% url 'Account:user_register' %}">Register</a></li>
+            
             
         </ul>
     </nav>

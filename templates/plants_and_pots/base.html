@@ -5,40 +5,43 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="{%static 'pots/pots.css'%}">
     <link rel="stylesheet" href="{%static 'pots/footer.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/pot_list.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/pot_detail.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/cart_list.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/checkout.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/myorder.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/address.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/all_product.css'%}">
+    <link rel="stylesheet" href="{%static 'pots/navbar.css'%}">
+    <link rel="stylesheet" href="{%static 'Account/css/login.css' %}">
+    <link rel="stylesheet" href="{%static 'Account/css/register.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-   
-    
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="main-body">
     {% include "plants_and_pots/navbar.html" %}
-    <div class="containe">
-       
-        {% for pot in pot_list  %}
-          <img src="{{pot.pot_image.url}}" alt="">
-          <h2>{{pot.pot_name}}</h2>
-        {% endfor %}
+    
+    {% block content %}
         
+    {% endblock content %}
+        
+            
+     {% include "plants_and_pots/footer.html" %}  
 
-        </div>
-        <div class="divider container-fluid">
-            {% for pot in resin  %}
-            <img src="{{pot.pot_image.url}}" alt="">
-            <h2>{{pot.pot_name}}</h2>
-          {% endfor %}
-        </div>
-        
-        {% block content %}
-            
-        {% endblock content %}
-            
-    {% include "plants_and_pots/footer.html" %}
- <script src="{%static 'pots/nav.js'%}"></script>  
+ <script src="{%static 'pots/nav.js'%}"></script>
+<script src="{%static 'pots/pot_list.js' %}"></script>
+
+
+
+
 </body>
 </html>

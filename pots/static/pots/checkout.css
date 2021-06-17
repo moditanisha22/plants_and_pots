@@ -1,0 +1,123 @@
+
+.checkout_page{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout_container{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 20px;
+    height: auto;
+
+}
+.address_info{
+    width: 55%;
+    padding-right: 20px;
+    border-right: 1px solid rgba(175,175,175,.34);
+    margin-top: 2rem;
+}
+.right_part{
+    margin-top: 60px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.checkout-card{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    
+
+
+}
+.checkout-image{
+    max-width: 20%;
+    min-width: 20%;
+    position: relative;
+    height: 100%;
+}
+.checkout-image img{
+    width: 80%;
+    height: 100%;
+    margin-right: 10px;
+}
+.checkout-title{
+    text-decoration: none;
+    
+    min-width:100%;
+    max-width: 100%;
+    align-items: center;
+    padding: 10px;
+    
+    
+    
+}
+
+.checkout-content{
+    font-size: 8px;
+    margin-right: 5px;
+    width: 300px;
+}
+.banner_image{
+    background-image: url(https://cdn1.angusandceleste.com/wp-content/uploads/2020/10/15131401/Angus-Celeste-Abstract-Relief-Plant-Pots-Banner-2000x800.jpg);
+    height: 20rem;
+    background-size: cover;
+    background-position: center;
+    border-top: 5px solid rgba(175,175,175,.34);
+}
+.checkout_subtotal{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid  rgba(175,175,175,.34);
+    border-bottom: 1px solid  rgba(175,175,175,.34);
+    padding: 15px 0;
+}
+.quantity__number{
+    /* position: absolute;
+    top:0;
+    right:0;
+    margin-right: 15px;
+    background-color: rgba(114,114,114,.9);
+    color:white;
+    border-radius: 1.75em;
+    padding: 2px;
+    font-size: 15px;
+    text-align: center; */
+
+    font-size: .8571428571em;
+    font-weight: 500;
+    line-height: 1.75em;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 1.75em;
+    background-color: rgba(114,114,114,.9);
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 1.75em;
+    height: 1.75em;
+    padding: 0 .5833333333em;
+    position: absolute;
+    right: -.75em;
+    top: -.75em;
+    z-index: 3;
+    margin-right: 1.5em;
+
+
+}
+.my-first-btn{
+text-decoration: none;
+color:black;
+margin:40px 2px;
+width: 250px;
+border-radius: 10px;
+transition: 0.5s;
+}

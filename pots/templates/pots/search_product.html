@@ -1,0 +1,39 @@
+{% extends "plants_and_pots/base.html" %}
+{% block content %}
+
+<h3 class="text-center">Our All Products</h3>
+<div class="container all-product-container">
+
+  
+  {% if product_list %}
+  
+  {% for pot in product_list %}
+
+  <div data-id={{pot.id}} class="card secondary-card">
+    <div class="image">
+      <a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><img class="pot_image" src="{{pot.pot_image.url}}" alt=""></a>
+    </div>
+    <div class="card-body">
+      <div class="card-text">
+        <h6><a class="title" href="{%url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}">{{pot.pot_name}}</a></h6>
+        <h6 id="marked_price">Rs. {{pot.marked_price|floatformat:2}}</h6>
+        <h6 style="color:red">Rs. {{pot.selling_price|floatformat:2}}</h6>
+      </div>
+      <div class="card-footerr">
+        <h6><a href="{%url 'pots:addcart' slug=pot.slug %}" class="btn btn-success">Add to Cart</a></h6>
+        <h6><a href="{% url 'pots:quick_shop_checkout' slug=pot.slug %}" class="btn btn-warning">Quick Shop</a></h6>
+      </div>
+    </div>
+   
+  </div>
+    
+  {% endfor %}
+    
+  {% endif %}
+    
+
+
+</div>
+  
+{% endblock content %}
+

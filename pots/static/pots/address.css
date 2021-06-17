@@ -1,0 +1,67 @@
+
+.address_info{
+    width: 55%;
+    padding-right: 20px;
+    border-right: 1px solid rgba(175,175,175,.34);
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: auto;
+}
+
+
+.card-address{
+    min-width: 40%;
+    max-width: 40%;
+    max-height: 280px;
+    min-height: 280px;
+    /* border: 1px solid rgba(175,175,175,.34); */
+    padding: 10px;
+    margin-right: 40px;
+}
+.name{
+    width: 100%;
+}
+.card-add-content{
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+}
+.footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.second_footer{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.ord-button{
+ background: none !important;
+ opacity: 0.8;
+ color: black !important;
+ margin-right: 40px;
+ min-width: 100px;
+ max-width: 100px;
+}
+
+.address-plus-icon {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gMfFBUB8Kc3yAAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAABmJLR0QA/wD/AP+gvaeTAAAAP0lEQVRYw+3UsQkAMAwDsPz/o29pHkjnlCKDV6PJVb8myZkKBgYGBgYGBvYg7Da+VTAwMD8GBgYGBgYGBraWBpeqjFTlGtDAAAAAAElFTkSuQmCC) left center no-repeat;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+}
+.empty_card{
+    border: 2px dotted black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty-card-start{
+    text-decoration: none;
+}

@@ -1,0 +1,59 @@
+.product-detail-container {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price{
+  display: flex;
+ 
+  align-items: center;
+}
+.price h5{
+  display: inline;
+  margin: 0.5rem;
+  margin-bottom: 0;
+}
+#product-image{
+  min-height: 550px;
+  min-width: 500px;
+  max-height: 550px;
+  max-width: 500px;
+  
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.product-div-image{
+  width:25%;
+}
+.product-description{
+  width: 55%;
+}
+.title{
+  margin-top: 0;
+}
+#marked_price{
+  color:grey;
+
+  text-decoration: line-through;
+}
+
+#selling_price{
+  color: rgb(236, 0, 0);
+}
+.tax{
+  font-size: 0.8rem;
+  margin: 0.5rem;
+  margin-top: 0;
+}
+#pot_name{
+  font-weight: bolder !important;
+  color: red;
+}
+#size{
+  font-weight: bolder;
+}
+
+
+.category{
+  display: none;
+}

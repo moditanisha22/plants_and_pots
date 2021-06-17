@@ -1,0 +1,99 @@
+{% extends 'plants_and_pots/base.html' %}
+{% block content %}
+  
+<div class="container cart-container">
+  
+  {% if cart_list %}
+  <div class="heading">
+   <h2> Your Cart</h2>
+  
+  </div>
+  {% for cart in cart_list  %}
+    
+      <div class="cart-card shadow-sm p-3 mb-5 bg-white rounded">
+      
+        <div class="cart-image">
+          <a class="title" href="{% url 'pots:pot_detail' slug=cart.pot.slug pk=cart.pot.category.pk%}"><img src="{{cart.pot.pot_image.url}}" alt=""></a>
+        </div>
+        <div class="cart-content">
+  
+        <a class="title" href="{% url 'pots:pot_detail' slug=cart.pot.slug pk=cart.pot.category.pk%}"><h5>{{cart.pot.pot_name}}</h5></a>  
+          <div class="price">
+            <h6>Price</h6>
+            <h6 id="marked_price" >Rs.{{cart.pot.marked_price|floatformat:2}}</h6>
+            <h6><span >Rs.{{cart.pot.selling_price|floatformat:2}}</span></h6>
+          </div>
+        </div>
+        
+        <div class="quantity">
+          Quantity:
+          <a href="{% url 'pots:decrease' slug=cart.pot.slug %}"><i class="fa fa-minus"></i></a>
+          {% for q in quantity %}
+            
+            {% if q.pot.slug == cart.pot.slug %}
+           
+            <button type="button" class="btn btn-dark">
+               <span class="badge badge-dark">{{q.quantity}}</span>
+            </button>
+            {% endif %}
+              
+          {% endfor %}
+         
+          <a href="{% url 'pots:increase' slug=cart.pot.slug %}"><i class="fa fa-plus"></i></a>
+        </div>
+  
+          <div class="total_price_pot">
+            {% for q in quantity  %}
+              
+              {% if q.pot.slug == cart.pot.slug %}
+  
+              <h5 style="padding:10px;">Rs.{{q.total_price|floatformat:2}} </h5>
+                
+              {% endif %}
+                
+            {% endfor %}
+          </div>
+          <div>
+            <a style="margin: 0 20px;" href="{% url 'pots:delete_cart_pot' slug=cart.pot.slug %}"><i class="fa fa-times-circle fa-2x"></i></a>
+          </div>
+        
+      </div>
+   
+  {% endfor %}
+  <div class="subtotal">
+    
+    <h4>Subtotal</h4>
+    <div class="total_item_price">
+      <h3> Rs.{{total_price|floatformat:2}}</h3>
+    </div>
+  </div>
+  <div class="button">
+    <a href="{% url 'pots:checkout' %}" class="btn btn-warning mybtn">Proceed To Checkout</a>
+</div>
+ 
+{% else %}
+
+<div class="container empty-container">
+  <div class="title">
+    <h3>Sorry Your Cart is Empty</h3>
+  </div>
+  <div class="empty-image">
+    <img src="https://www.kindpng.com/picc/m/289-2892204_your-cart-is-empty-empty-cart-icon-png.png" alt="">
+  </div>
+</div>
+    
+  {% endif %}
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

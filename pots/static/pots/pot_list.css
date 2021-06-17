@@ -1,0 +1,166 @@
+
+.banner{
+  
+  background: black url(https://previews.123rf.com/images/pinkasevich/pinkasevich1901/pinkasevich190100095/117260295-top-view-of-mini-roses-in-ceramic-flower-pots-and-gardening-tools-long-wide-banner-with-copy-space-b.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: difference;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.drop-down-div{
+  display: none;
+}
+.drop-down-a:hover .drop-down-div{
+  background-color: greenyellow;
+}
+
+.main-container{
+  
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  
+}
+.title{
+  text-decoration: none;
+  color: black;
+}
+.pot{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+ 
+
+
+}
+
+
+.secondary-card{
+  width: 30%;
+  
+  margin: 10px;
+  min-height: 300px;
+  /* position: relative; */
+  transition: 1s;
+}
+.image{
+  width: 100%;
+  height: 30%;
+
+}
+.image img{
+  width: 100%;
+  max-height: 170px;
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+
+}
+
+.card-text{
+  min-height: 37px  !important;
+
+
+}
+.card-footerr{
+  
+  background:none !important; 
+  width: 100%;
+  margin: auto;
+  
+  display: none;
+
+}
+.card-footerr a{
+  margin: 3px;
+  font-size: 13px;
+}
+.secondary-card:hover{
+  min-height: 330px;
+}
+.secondary-card:hover .card-footerr{
+ display: flex ;
+}
+.main-body{
+  font-family: 'Open Sans', sans-serif;
+  background-color:#f8f8f8 !important;
+}
+.secondary_crd{
+  width: 25%;
+  
+  margin: 10px;
+  min-height: 300px;
+}
+
+.quantity{
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+  
+  
+}
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+.quantity #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+.quantity #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+/* form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+} */
+
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.pot-heading{
+  margin-top: 0px !important;
+}

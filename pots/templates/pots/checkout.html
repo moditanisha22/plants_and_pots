@@ -1,0 +1,169 @@
+{% extends 'plants_and_pots/base.html' %}
+{% block content %}
+{%load bootstrap4%}
+
+<div class="checkout_page">
+<div class="banner_image">
+   
+</div>
+<h2>Shipping Address</h2>
+<div class=" container checkout_container">
+ 
+  <div class="address_info">
+    <a class="empty-card-start" href="{% url 'pots:add_address' %}">
+    <div  class="card-address empty_card shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="a-box-inner a-padding-extra-large"><div id="ya-myab-plus-address-icon" class="a-section a-spacing-none address-plus-icon aok-inline-block"></div><h2 class="a-color-tertiary">Add address</h2></div>
+    </a>
+      
+  
+    </div>
+    
+    {% if user.address.all %}
+  {% for add in user.address.all  %}
+  
+  <div class="card-address shadow-sm p-3 mb-5 bg-white rounded">
+    <div class="name">
+      <h5>{{add.first_name}} {{add.last_name}}</h5>
+
+      <p>{{add.mobile_no}}</p>
+    </div>
+    <div class="card-add-content">
+      <h6>{{add.flat_no}}, {{add.Area_Colony}},
+        {{add.Landmark}}, {{add.Town_City}},
+        {{add.State}},{{add.Pincode}}</h6>
+    </div>
+
+    <div class="footer">
+      <a class="btn btn-warning" href="">Delivery to this Address</a>
+      <div class="second_footer">
+        <a class="btn btn-dark ord-button" href="">Edit</a>
+        <a class="btn btn-dark ord-button" href="{% url 'pots:delete_address' pk=add.pk %}">Delete</a>
+      </div>
+    </div>
+
+  </div>
+    
+  {% endfor %}
+      
+    {% endif %}
+      
+  </div>
+   
+     
+      
+   
+
+    <div class="right_part">
+                  
+            {% if cart_list %}
+            
+            {% for cart in cart_list  %}
+    
+            <div class="checkout-card shadow-sm p-3 mb-5 bg-white rounded">
+            
+              <div class="checkout-image">
+                <a class="checkout-img" href="{% url 'pots:pot_detail' slug=cart.pot.slug pk=cart.pot.category.pk%}"><img src="{{cart.pot.pot_image.url}}" alt="">
+                
+                </a>
+                {% for q in quantity  %}
+                  
+                  {% if q.pot.slug == cart.pot.slug %}
+
+                  <div class="quantity__number">
+                      {{q.quantity}}
+                  </div>
+                      
+                  {% endif %}
+                      
+                {% endfor %}
+              </div>
+              <div class="checkout-content">
+        
+              <a class="checkout-title" href="{% url 'pots:pot_detail' slug=cart.pot.slug pk=cart.pot.category.pk%}"><h6>{{cart.pot.pot_name}}</h6></a>  
+                <!-- <div class="price">
+                  <h6>Price</h6>
+                  <h6 id="marked_price" >Rs.{{cart.pot.marked_price|floatformat:2}}</h6>
+                  <h6><span >Rs.{{cart.pot.selling_price|floatformat:2}}</span></h6>
+                </div> -->
+              </div>
+              
+              <!-- <div class="quantity">
+                <a href="{% url 'pots:decrease' slug=cart.pot.slug %}"><i class="fa fa-minus"></i></a>
+                {% for q in quantity %}
+                  
+                  {% if q.pot.slug == cart.pot.slug %}
+                  <button type="button" class="btn btn-dark">
+                     <span class="badge badge-dark">{{q.quantity}}</span>
+                  </button>
+                  {% endif %}
+                    
+                {% endfor %}
+               
+                <a href="{% url 'pots:increase' slug=cart.pot.slug %}"><i class="fa fa-plus"></i></a>
+              </div> -->
+        
+                <div class="checkout-total_price_pot">
+                  {% for q in quantity  %}
+                    
+                    {% if q.pot.slug == cart.pot.slug %}
+        
+                    <h6 style="padding:10px;">Rs.{{q.total_price|floatformat:2}} </h6>
+                      
+                    {% endif %}
+                      
+                  {% endfor %}
+                </div>
+                <!-- <div>
+                  <a style="margin: 0 20px;" href="{% url 'pots:delete_cart_pot' slug=cart.pot.slug %}"><i class="fa fa-times-circle fa-2x"></i></a>
+                </div> -->
+              
+            </div>
+         
+        {% endfor %}
+        
+            
+                
+            {% endif %}
+
+                
+        
+       
+       <div class="checkout_subtotal">
+        <h6>Subtotal</h6>
+        <div class="total_item_price">
+          <h6> Rs.{{total_price|floatformat:2}}</h6>
+        </div>
+       </div>
+
+       <a  class="btn btn-warning btn-lg btn-fluid my-first-btn" href="{%url 'pots:final_order' %}"   type="submit" >Continue to Payment</a>
+       <a class="my-first-btn" href="{% url 'pots:cart_list' %}" >Return to cart</a>
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,99 @@
+{% extends "plants_and_pots/base.html" %}
+
+{% block content %}
+<div class="heading">
+  <h2> My Order</h2>
+ 
+ </div>
+<div class="cart-container">
+  
+    {% if user.orders.all %}
+
+    {% for order in user.orders.all  %}
+    <h3 class="text-center my-text">{{order.order_date}}</h3>
+    {% for pot in order.pot.all %}
+     
+        <div class="cart-card order-card shadow-sm p-3 mb-5 bg-white rounded">
+        
+          <div class="cart-image">
+            <a class="title" href="{% url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><img src="{{pot.pot_image.url}}" alt=""></a>
+          </div>
+          <div class="quantity">
+            Quantity:
+            
+            {% for q in quantity %}
+              
+              {% if q.pot.slug == pot.slug %}
+             
+              <span class="qun">{{q.quantity}}</span>
+              
+              {% endif %}
+                
+            {% endfor %}
+           
+         
+          </div>
+          <div class="cart-content">
+            
+    
+          <a class="title" href="{% url 'pots:pot_detail' slug=pot.slug pk=pot.category.pk%}"><h5>{{pot.pot_name}}</h5></a>  
+            <div class="price">
+              <h6>Price</h6>
+              <h6 id="marked_price" >Rs.{{pot.marked_price|floatformat:2}}</h6>
+              <h6><span >Rs.{{pot.selling_price|floatformat:2}}</span></h6>
+            </div>
+            
+      
+         
+              
+            </div>
+            </div>
+
+            <div style="width: 100%;" class="checkout_subtotal">
+              <h6 >Subtotal</h6>
+              <div class="total_item_price">
+                {% for q in quantity %}
+                
+                {% if q.pot.slug == pot.slug %}
+               
+               
+                <span>You Have Paid Rs.{{q.total_price|floatformat:2}}</span>
+                {% endif %}
+                  
+              {% endfor %}
+                
+              </div>
+             </div>
+           
+          
+        </div>
+     
+    {% endfor %}
+    {% endfor %}
+    <!-- <div class="subtotal">
+      
+      <h4>Subtotal</h4>
+      <div class="total_item_price">
+        <h3> Rs.{{total_price|floatformat:2}}</h3>
+      </div>
+    </div> -->
+   
+  {% else %}
+  
+  <div class="container empty-container">
+    <div class="title">
+      <h3>There is No Order</h3>
+    </div>
+    <div class="empty-image">
+      <img src="https://www.kindpng.com/picc/m/289-2892204_your-cart-is-empty-empty-cart-icon-png.png" alt="">
+    </div>
+  </div>
+      
+    {% endif %}
+      
+  
+  </div>
+
+
+  
+{% endblock content %}
